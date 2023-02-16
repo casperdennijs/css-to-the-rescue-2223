@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+  
+html, body {
+    height: 100%
+}
+  
+body {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background-color: aqua;
+}
+
+/* Clouds */
+header > div:nth-child(1) {
+    position: absolute;
+    top: 50px;
+    left: 20px;
+    display: flex;
+    align-items: end;
+    height: 150px;
+}
+  
+header > div:nth-child(1) > div {
+    background-color: white;
+}
+  
+header > div:nth-child(2) {
+    position: absolute;
+    top: 100px;
+    right: 10px;
+    display: flex;
+    align-items: end;
+    height: 150px;
+}
+  
+header > div:nth-child(2) > div {
+    background-color: #f1f1f1;
+}
+  
+header > div:nth-child(3) {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: end;
+    height: 150px;
+}
+  
+header > div:nth-child(3) > div {
+    background-color: #fbfbfb;
+}
+  
+header > div > div:nth-child(1) {
+    height: 100px;
+    width: 100px;
+    border-radius: 100% 50px 0 100%;
+}
+  
+header > div > div:nth-child(2) {
+    height: 130px;
+    width: 150px;
+    border-radius: 50px 50px 0 0;
+}
+  
+header > div > div:nth-child(3) {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px 100% 100% 0;
+}
+
+/* Firework */
+/* Bron: https://alvaromontoro.com/blog/68002/creating-a-firework-effect-with-css */
+@keyframes firework {
+    0% { 
+        transform: translate(-50%, 60vh);
+        width: 0.5vmin;
+        opacity: 1;
+    }
+
+    50% { 
+        width: 0.5vmin;
+        opacity: 1;
+    }
+
+    100% { 
+        width: var(--splashWidth); 
+        opacity: 0; 
+    }
+  }
+  
+main > div,
+main > div::before,
+main > div::after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.5vmin;
+    aspect-ratio: 1;
+    background:
+        radial-gradient(circle, #000 0.2vmin, #0000 0) 50% 00%,
+        radial-gradient(circle, #000 0.3vmin, #0000 0) 00% 50%,
+        radial-gradient(circle, #000 0.5vmin, #0000 0) 50% 99%,
+        radial-gradient(circle, #000 0.2vmin, #0000 0) 99% 50%,
+        radial-gradient(circle, #000 0.3vmin, #0000 0) 80% 90%,
+        radial-gradient(circle, #000 0.5vmin, #0000 0) 95% 90%,
+        radial-gradient(circle, #000 0.5vmin, #0000 0) 10% 60%,
+        radial-gradient(circle, #000 0.2vmin, #0000 0) 31% 80%,
+        radial-gradient(circle, #000 0.3vmin, #0000 0) 80% 10%,
+        radial-gradient(circle, #000 0.2vmin, #0000 0) 90% 23%,
+        radial-gradient(circle, #000 0.3vmin, #0000 0) 45% 20%,
+        radial-gradient(circle, #000 0.5vmin, #0000 0) 13% 24%;
+    background-size: 0.5vmin 0.5vmin;
+    background-repeat: no-repeat;
+}
+  
+main > div:nth-child(1) {
+    --splashWidth: 20vmin;
+    left: 25%;
+    top: 40%;
+    animation: firework 2s infinite .5s;
+}
+  
+main > div:nth-child(2) {
+    --splashWidth: 45vmin;
+    left: 50%;
+    top: 30%;
+    animation: firework 2s infinite 0s;
+}
+  
+main > div:nth-child(3) {
+    --splashWidth: 10vmin;
+    left: 75%;
+    top: 50%;
+    animation: firework 2s infinite 1s;
+}
+  
+main > div::before {
+    transform: translate(-50%, -50%) rotate(25deg) !important; 
+}
+  
+main > div::after {
+    transform: translate(-50%, -50%) rotate(-37deg) !important;
+}
+
+/* Terrain */
+footer > div:first-child {
+    z-index: 1;
+    position: absolute;
+    bottom: 0;
+    left: -30px;
+    width: 60%;
+    transform: translateY(50%);
+    background-color: green;
+    height: 300px;
+    border-radius: 100%;
+}
+  
+footer > div:last-child {
+    position: absolute;
+    bottom: 0;
+    right: -20px;
+    width: 70%;
+    transform: translateY(50%);
+    background-color: lightgreen;
+    height: 400px;
+    border-radius: 100%;
+}
