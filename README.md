@@ -7,6 +7,8 @@ Om de opdracht volledig te kunnen bekijken heb je de webbrowser Chrome nodig op 
 
 In het project heb ik gebruik gemaakt van het experimentele native CSS nesting hierdoor moet je een flag aanzetten in Chrome om mijn CSS correct in te laden. Je kan de flag aanzetten doormiddel van de volgende link te volgen (**chrome://flags/#enable-experimental-web-platform-features**) en het in de dropdown op Enabled te zetten.
 
+Live versie: https://casperdennijs.github.io/css-vuurwerkshow/
+
 ## Proces
 Gedurende de 3 weken (exclusief vakantie) houd ik mijn proces bij van wat ik allemaal gedaan heb voor deze opdracht.
 
