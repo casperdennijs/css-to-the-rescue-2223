@@ -7,18 +7,21 @@
     --ground-animation-delay: 0s;
 
     --sky-animation: 10s;
-    --sky-animation-delay: 15s;
+    --sky-animation-delay: 0s;
 
     --smoke-animation: 1.25s;
 
     --planet-animation: 3s;
-    --planet-animation-delay: 22s;
+    --planet-animation-delay: 10s;
 
     --falling-animation: 6s;
-    --falling-animation-delay: 22s;
+    --falling-animation-delay: 10s;
 
-    --clouds-animation: 5s;
-    --clouds-animation-delay: 7s;
+    --clouds-downwards-animation: 10s;
+    --clouds-downwards-animation-delay: 2s;
+
+    --clouds-sideways-animation: 11s;
+    --clouds-sideways-animation-delay: 3.5s;
 
     --animation-state: paused;
 }
@@ -42,162 +45,177 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-footer {
-    height: 200px;
+header {
     width: 100%;
-    position: absolute;
-    bottom: 0;
-}
+    display: flex;
+    justify-content: center;
 
-footer > div {
-    height: 200px;
-    width: 100%;
-    background-color: green;
-    border-radius: 100%;
-    transform: translateY(50%) scale(1.1);
+    /* header > div */
+    & > div {
+        position: relative;
+        height: 300px;
+        width: 300px;
+        background-color: bisque;
+        border-radius: 100%;
+        transform: translateY(-100%);
+    }
+
+    /* header > div:before */
+    & > div:before {
+        content: '';
+        position: absolute;
+        height: 100px;
+        width: 100px;
+        background-color: rgba(0 0 0 / 0.2);
+        border-radius: 100%;
+        bottom: 40px;
+        left: 40px;
+    }
+
+    /* header > div:after */
+    & > div:after {
+        content: '';
+        position: absolute;
+        height: 50px;
+        width: 50px;
+        background-color: rgba(0 0 0 / 0.2);
+        border-radius: 100%;
+        bottom:25px;
+        left: 150px;
+    }
+
+    /* header > form */
+    & > form {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        color: white;
+        padding: .25em;
+        z-index: 999;
+
+        /* header > form > input */
+        & > input {
+            position: absolute;
+            left: -1000px;
+        }
+
+        /* header > form > label */
+        & > label {
+            display: flex;
+            background: green;
+            padding: 1em;
+            border-radius: 100px;
+            width: max-content;
+            align-items: center;
+            gap: 1em;
+            transition: .5s;
+            margin: 1em;
+            opacity: 0.25;
+        }
+
+        /* header > form > label:hover */
+        & > label:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+            opacity: 1;
+        }
+
+        /* header > form > label:before */
+        & > label:before {
+            content: "";
+            background-image: url(./svg/play.svg);
+            background-size: cover;
+            display: block;
+            height: 2em;
+            width: 2em;
+        }
+
+        /* header > form > label:after */
+        & > label:after {
+            content: "Play animation";
+            display: block;
+        }
+    }
 }
 
 main {
     width: 100%;
     display: flex;
     justify-content: center;
+    
+    /* main > div */
+    & > div {
+        position: absolute;
+        bottom: 0;
+        width: 50px;
+        height: 100px;
+        background-color: red;
+        z-index: 3;
+        transform: translateY(-50px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        /* main > div > div */
+        & > div {
+            height: 35px;
+            width: 35px;
+            background-color: rgba(255 255 255 / 0.4);
+            position: absolute;
+            bottom: -30px;
+            transform: translateY(0px) scale(0.2);
+            z-index: 1; 
+        }
+
+        /* main > div > div:before */
+        & > div:before {
+            height: 35px;
+            width: 35px;
+            background-color: rgba(255 255 255 / 0.4);
+            transform: rotate(45deg);
+            position: absolute;
+        }
+    }
+
+    /* main > div:before */
+    & > div:before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 50px solid white;
+    }
+
+    /* main > div:after */
+    & > div:after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        border-bottom: 20px solid white;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        height: 0;
+        width: 50px;
+        z-index: 3;
+    }
 }
 
-main > div {
+footer {
+    height: 200px;
+    width: 100%;
     position: absolute;
     bottom: 0;
-    width: 50px;
-    height: 100px;
-    background-color: red;
-    z-index: 3;
-    transform: translateY(-50px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-main > div:before {
-    content: '';
-    position: absolute;
-    top: -50px;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-bottom: 50px solid white;
-}
-
-main > div:after {
-    content: '';
-    position: absolute;
-    bottom: -20px;
-    border-bottom: 20px solid white;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    height: 0;
-    width: 50px;
-    z-index: 3;
-}
-
-main > div > div {
-    height: 35px;
-    width: 35px;
-    background-color: rgba(255 255 255 / 0.4);
-    position: absolute;
-    bottom: -30px;
-    transform: translateY(0px) scale(0.2);
-    z-index: 1;
-}
-
-main > div > div:before {
-    height: 35px;
-    width: 35px;
-    background-color: rgba(255 255 255 / 0.4);
-    transform: rotate(45deg);
-    position: absolute;
-}
-
-header {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-header > div {
-    position: relative;
-    height: 300px;
-    width: 300px;
-    background-color: bisque;
-    border-radius: 100%;
-    transform: translateY(-100%);
-}
-
-header > div:before {
-    content: '';
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    background-color: rgba(0 0 0 / 0.2);
-    border-radius: 100%;
-    bottom: 40px;
-    left: 40px;
-}
-
-header > div:after {
-    content: '';
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    background-color: rgba(0 0 0 / 0.2);
-    border-radius: 100%;
-    bottom:25px;
-    left: 150px;
-}
-
-header > form {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    color: white;
-    padding: .25em;
-    z-index: 999;
-}
-
-header > form > input {
-    position: absolute;
-    left: -1000px;
-}
-
-header > form > label {
-    display: flex;
-    background: green;
-    padding: 1em;
-    border-radius: 100px;
-    width: max-content;
-    align-items: center;
-    gap: 1em;
-    transition: .5s;
-    margin: 1em;
-    opacity: 0.25;
-}
-
-header > form > label:hover {
-    cursor: pointer;
-    transform: scale(1.05);
-    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
-    opacity: 1;
-}
-
-header > form > label:before {
-    content: "";
-    background-image: url(./svg/play.svg);
-    background-size: cover;
-    display: block;
-    height: 2em;
-    width: 2em;
-}
-
-header > form > label:after {
-    content: "Play animation";
-    display: block;
+    /* footer > div */
+    & > div {
+        height: 200px;
+        width: 100%;
+        background-color: green;
+        border-radius: 100%;
+        transform: translateY(50%) scale(1.1);
+    }
 }
 
 body:has(header > form > input:checked) {
@@ -384,17 +402,17 @@ header > section {
     top: 100px;
     gap: 50px;
     transform: translateY(-300px);
-    animation: clouds-downwards var(--clouds-animation) forwards;
-    animation-delay: var(--clouds-animation-delay);
+    animation: clouds-downwards var(--clouds-downwards-animation) forwards;
+    animation-delay: var(--clouds-downwards-animation-delay);
     animation-play-state: var(--animation-state);
 }
 
-@keyframes clouds-sideways {
+@keyframes clouds-downwards {
     0% {
         transform: translateY(-300px);
     }
     100% {
-        transform: translateY(200px);
+        transform: translateY(1000px);
     }
 }
 
@@ -402,17 +420,17 @@ header > section > div {
     flex: 50%;
     display: flex;
     gap: 50px;
-    animation: clouds-sideways var(--clouds-animation) forwards;
-    animation-delay: var(--clouds-animation-delay);
+    animation: clouds-sideways var(--clouds-sideways-animation) forwards;
+    animation-delay: var(--clouds-sideways-animation-delay);
     animation-play-state: var(--animation-state);
 }
 
 header > section > div:first-child {
-    --cloud-transform: 0;
+    --cloud-transform: -1000px;
 }
 
 header > section > div:last-child {
-    --cloud-transform: 0;
+    --cloud-transform: 1000px;
 }
 
 @keyframes clouds-sideways {
