@@ -1,3 +1,28 @@
+:root {
+    /* Animation config */
+    --rocket-animation: 5s;
+    --rocket-animation-delay: 0s;
+
+    --ground-animation: 2s;
+    --ground-animation-delay: 0s;
+
+    --sky-animation: 10s;
+    --sky-animation-delay: 15s;
+
+    --smoke-animation: 1.25s;
+
+    --planet-animation: 3s;
+    --planet-animation-delay: 22s;
+
+    --falling-animation: 6s;
+    --falling-animation-delay: 22s;
+
+    --clouds-animation: 5s;
+    --clouds-animation-delay: 7s;
+
+    --animation-state: paused;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,17 +39,7 @@ body {
     width: 100%;
     position: relative;
     background: rgba(153,244,255,1);
-    animation: sky 10s forwards;
-    animation-delay: 15s;
-}
-
-@keyframes sky {
-    0% {
-        background: rgba(153,244,255,1);
-    }
-    100% {
-        background: rgba(2,5,51,1);
-    }
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 footer {
@@ -40,17 +55,6 @@ footer > div {
     background-color: green;
     border-radius: 100%;
     transform: translateY(50%) scale(1.1);
-    animation: ground 2s forwards;
-    animation-delay: 5s;
-}
-
-@keyframes ground {
-    0% {
-        transform: translateY(50%) scale(1.1);
-    }
-    100% {
-        transform: translateY(110%) scale(1.1);
-    }
 }
 
 main {
@@ -67,10 +71,6 @@ main > div {
     background-color: red;
     z-index: 3;
     transform: translateY(-50px);
-    animation-name: firework, falling;
-    animation-duration: 5s, 6s;
-    animation-delay: 5s, 22s;
-    animation-fill-mode: forwards, forwards;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,27 +97,6 @@ main > div:after {
     z-index: 3;
 }
 
-@keyframes firework {
-    0% {
-        transform: translateY(-50px);
-    }
-    100% {
-        transform: translateY(-500px);
-    }
-}
-
-@keyframes falling {
-    0% {
-        transform: translateY(-500px);
-    }
-    50% {
-        transform: translateY(-640px) rotate(0deg);
-    }
-    100% {
-        transform: translateY(150px) rotate(80deg);
-    }
-}
-
 main > div > div {
     height: 35px;
     width: 35px;
@@ -125,7 +104,6 @@ main > div > div {
     position: absolute;
     bottom: -30px;
     transform: translateY(0px) scale(0.2);
-    animation: smoke 1.25s infinite;
     z-index: 1;
 }
 
@@ -135,42 +113,6 @@ main > div > div:before {
     background-color: rgba(255 255 255 / 0.4);
     transform: rotate(45deg);
     position: absolute;
-}
-
-main > div > div:nth-child(1) {
-    --distance: 70px;
-    --rotate: 10deg;
-    animation-delay: 5s;
-}
-main > div > div:nth-child(2) {
-    --distance: 80px;
-    --rotate: -5deg;
-    animation-delay: 6.5s;
-}
-main > div > div:nth-child(3) {
-    --distance: 90px;
-    --rotate: -20deg;
-    animation-delay: 8s;
-}
-main > div > div:nth-child(4) {
-    --distance: 100px;
-    --rotate: 35deg;
-    animation-delay: 9.5s;
-}
-
-@keyframes smoke {
-    0% {
-        transform: translateY(0px) scale(0.3) rotate(var(--rotate));
-        background-color: rgba(255 0 0 / 0.4);
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(var(--distance)) scale(1) rotate(calc(var(--rotate) + 60deg));
-        opacity: 0;
-        background-color: rgba(255 175 0 / 0.4);
-    }
 }
 
 header {
@@ -186,8 +128,6 @@ header > div {
     background-color: bisque;
     border-radius: 100%;
     transform: translateY(-100%);
-    animation: planet 3s forwards;
-    animation-delay: 22s;
 }
 
 header > div:before {
@@ -212,11 +152,274 @@ header > div:after {
     left: 150px;
 }
 
+header > form {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    color: white;
+    padding: .25em;
+    z-index: 999;
+}
+
+header > form > input {
+    position: absolute;
+    left: -1000px;
+}
+
+header > form > label {
+    display: flex;
+    background: green;
+    padding: 1em;
+    border-radius: 100px;
+    width: max-content;
+    align-items: center;
+    gap: 1em;
+    transition: .5s;
+    margin: 1em;
+    opacity: 0.25;
+}
+
+header > form > label:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+    opacity: 1;
+}
+
+header > form > label:before {
+    content: "";
+    background-image: url(./svg/play.svg);
+    background-size: cover;
+    display: block;
+    height: 2em;
+    width: 2em;
+}
+
+header > form > label:after {
+    content: "Play animation";
+    display: block;
+}
+
+body:has(header > form > input:checked) {
+    --animation-state: running;
+}
+
+body:has(header > form > input:checked) header > form > label {
+    background: red;
+    opacity: 0.25;
+}
+
+body:has(header > form > input:checked) header > form > label:hover {
+    opacity: 1;
+}
+
+body:has(header > form > input:checked) header > form > label:before {
+    background-image: url(./svg/pause.svg);
+}
+
+body:has(header > form > input:checked) header > form > label:after {
+    content: "Pause animation";
+}
+
+header > section > div > div {
+    display: flex;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 100%;
+    margin: 0 50px;
+}
+
+header > section > div > div:nth-child(2) {
+    transform: translateY(50px);
+}
+
+header > section > div > div:nth-child(3) {
+    transform: translateY(-30px);
+}
+
+header > section > div > div:before {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 100%;
+    transform: translateX(-60px) translateY(20px);
+    z-index: 2;
+}
+
+header > section > div > div:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    border-radius: 100%;
+    transform: translateX(60px) translateY(20px);
+    z-index: 1;
+}
+
+/* Animation */
+footer > div {
+    animation: ground var(--ground-animation) forwards;
+    animation-delay: var(--ground-animation-delay);
+    animation-play-state: var(--animation-state);
+}
+
+main > div {
+    animation-name: rocket, falling;
+    animation-duration: var(--rocket-animation), var(--falling-animation);
+    animation-delay: var(--rocket-animation-delay), var(--falling-animation-delay);
+    animation-fill-mode: forwards, forwards;
+    animation-play-state: var(--animation-state);
+}
+
+body {
+    animation: sky var(--sky-animation) forwards;
+    animation-delay: var(--sky-animation-delay);
+    animation-play-state: var(--animation-state);
+}
+
+header > div {
+    animation: planet var(--planet-animation) forwards;
+    animation-delay: var(--planet-animation-delay);
+    animation-play-state: var(--animation-state);
+}
+
+main > div > div {
+    animation: smoke var(--smoke-animation) infinite;
+    animation-play-state: var(--animation-state);
+}
+main > div > div:nth-child(1) {
+    --distance: 70px;
+    --rotate: 10deg;
+    animation-delay: 0s;
+}
+main > div > div:nth-child(2) {
+    --distance: 80px;
+    --rotate: -5deg;
+    animation-delay: 1.5s;
+}
+main > div > div:nth-child(3) {
+    --distance: 90px;
+    --rotate: -20deg;
+    animation-delay: 3s;
+}
+main > div > div:nth-child(4) {
+    --distance: 100px;
+    --rotate: 35deg;
+    animation-delay: 4.5s;
+}
+
+
+@keyframes ground {
+0% {
+    transform: translateY(50%) scale(1.1);
+}
+100% {
+    transform: translateY(110%) scale(1.1);
+}
+}
+
+@keyframes rocket {
+    0% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(-500px);
+    }
+}
+
+@keyframes sky {
+0% {
+    background: rgba(153,244,255,1);
+}
+100% {
+    background: rgba(2,5,51,1);
+}
+}
+
 @keyframes planet {
     0% {
         transform: translateY(-100%);
     }
     100% {
         transform: translateY(-40%);
+    }
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-500px);
+    }
+    50% {
+        transform: translateY(-640px) rotate(0deg);
+    }
+    100% {
+        transform: translateY(150px) rotate(80deg);
+    }
+}
+
+@keyframes smoke {
+    0% {
+        transform: translateY(0px) scale(0.3) rotate(var(--rotate));
+        background-color: rgba(255 0 0 / 0.4);
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(var(--distance)) scale(1) rotate(calc(var(--rotate) + 60deg));
+        opacity: 0;
+        background-color: rgba(255 175 0 / 0.4);
+    }
+}
+
+header > section {
+    display: flex;
+    position: absolute;
+    top: 100px;
+    gap: 50px;
+    transform: translateY(-300px);
+    animation: clouds-downwards var(--clouds-animation) forwards;
+    animation-delay: var(--clouds-animation-delay);
+    animation-play-state: var(--animation-state);
+}
+
+@keyframes clouds-sideways {
+    0% {
+        transform: translateY(-300px);
+    }
+    100% {
+        transform: translateY(200px);
+    }
+}
+
+header > section > div {
+    flex: 50%;
+    display: flex;
+    gap: 50px;
+    animation: clouds-sideways var(--clouds-animation) forwards;
+    animation-delay: var(--clouds-animation-delay);
+    animation-play-state: var(--animation-state);
+}
+
+header > section > div:first-child {
+    --cloud-transform: 0;
+}
+
+header > section > div:last-child {
+    --cloud-transform: 0;
+}
+
+@keyframes clouds-sideways {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(var(--cloud-transform));
     }
 }
