@@ -2,6 +2,10 @@
 
 Ik heb voor het vak CSS to the Rescue gekozen voor het thema 'Vuurwerkshow'. Hierbij heb ik besloten om een animatie te maken van een raket die een korte reis omhoog de lucht in maakt. Onderweg komt de raket verschillende dingen tegen.
 
+## Gebruik
+Om de opdracht volledig te kunnen bekijken heb je de webbrowser Chrome nodig op minimaal versie 110 (hierop heb ik getest).
+In het project heb ik gebruik gemaakt van het experimentele native CSS nesting hierdoor moet je een flag aanzetten in Chrome om mijn CSS correct in te laden. Je kan de flag aanzetten doormiddel van de volgende link te volgen chrome://flags/#enable-experimental-web-platform-features en het in de dropdown op Enabled te zetten.
+
 ## Proces
 Gedurende de 3 weken (exclusief vakantie) houd ik mijn proces bij van wat ik allemaal gedaan heb voor deze opdracht.
 
