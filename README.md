@@ -5,7 +5,7 @@ Ik heb voor het vak CSS to the Rescue gekozen voor het thema 'Vuurwerkshow'. Hie
 ## Gebruik
 Om de opdracht volledig te kunnen bekijken heb je de webbrowser Chrome nodig op minimaal versie 110 (hierop heb ik getest).
 
-In het project heb ik gebruik gemaakt van het experimentele native CSS nesting hierdoor moet je een flag aanzetten in Chrome om mijn CSS correct in te laden. Je kan de flag aanzetten doormiddel van de volgende link te volgen chrome://flags/#enable-experimental-web-platform-features en het in de dropdown op Enabled te zetten.
+In het project heb ik gebruik gemaakt van het experimentele native CSS nesting hierdoor moet je een flag aanzetten in Chrome om mijn CSS correct in te laden. Je kan de flag aanzetten doormiddel van de volgende link te volgen (**chrome://flags/#enable-experimental-web-platform-features**) en het in de dropdown op Enabled te zetten.
 
 ## Proces
 Gedurende de 3 weken (exclusief vakantie) houd ik mijn proces bij van wat ik allemaal gedaan heb voor deze opdracht.
@@ -28,9 +28,9 @@ Aan het einde van week ben ik begonnen met de afsluiter te maken van de animatie
 ### Week 3 (6 t/m 9 maart)
 In de laatste week ben ik voornamelijk bezig geweest met kleine aanpassingen aan de animatie, heb ik variabelen toegevoegd om het makkelijker en overzichtelijker te maken wanneer welke animatie moet gebeuren en heb ik een pauze/play interactie toegevoegd doormiddel van het gebruik maken van de has: selector.
 
-Verder zullen er nog wat elementen toegevoegd worden die de raket gedurende reis zal tegen komen om momenten waarbij weinig te zien op te vullen.
+Verder heb ik nog wat elementen toegevoegd waar de raket langs gaat en heb ik de tijd van de animatie wat ingekort. Daarnaast heb ik basis experimentele native CSS nesting toegepast om de CSS meer leesbaar en overzichtelijk te maken. Hiervoor moet je wel een flag in Chrome voor aanzetten (bekijk hiervoor het kopje **Gebruik**).
 
-Het eindresultaat kan je zien bij de volgende link: <github page url>
+Het eindresultaat kan je zien bij de volgende link: https://casperdennijs.github.io/css-vuurwerkshow/
 
-### Reflectie
+## Reflectie
 <invullen>
