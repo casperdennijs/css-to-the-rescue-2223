@@ -17,9 +17,6 @@ Tijdens de eerste week ben ik voornamelijk bezig geweest met experimenteren en b
 
 Ik begon met het overnemen van de code uit de bron en te tweaken met de waardes en CSS die erin staat. Hierdoor kon ik beter in kaart brengen welke regel wat aanpast en beter begrip te krijgen over hoe het werkt. Kleuren aanpassen, hoogte van de explosie en hoe breedte deze explosie verspreid waren elementen die ik heb veranderd. Daarnaast ben ik voor de eerste bezig geweest met het maken van decoratie. Op deze manier heb ik nog niet eerder CSS toegepast dus voor mij was dit een nieuwe ontdekking en uitdaging om uit te vogelen hoe ik het correct en netjes maak.
 
-Aan het einde van de week heb ik het volgende resultaat bereikt die ik tijdens de gesprekken getoond heb:
-<screenshot plaatsen>
-
 ### Week 2 (20 t/m 24 februari)
 Aan het begin van de tweede week kwam ik op het idee om een soort reis met een raket na de willen gaan maken en heb ik besloten om vanaf scratch opnieuw te beginnen. Hierbij ben ik eerst begonnen met wat basis decoratie te maken als start omgeving waarin de raket zich begeeft. Daarna heb ik een start gemaakt aan het maken van de raket en basis animatie toe te passen.
 

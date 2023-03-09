@@ -91,6 +91,7 @@ header {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        transform-origin: center;
 
         /* header > form:nth-child(1) > input */
         & > input {
@@ -100,6 +101,7 @@ header {
 
         /* header > form:nth-child(1) > label */
         & > label {
+            display: block;
             background: pink;
             padding: 2rem;
             border-radius: 100px;
@@ -115,7 +117,7 @@ header {
         /* header > form:nth-child(1) > label:hover */
         & > label:hover {
             cursor: pointer;
-            transform: scale(1.05);
+            transform: scale(1.5);
             box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
             opacity: 1;
         }
@@ -261,7 +263,7 @@ body:has(header form:nth-child(1) input:checked) {
 }
 
 body:has(header form:nth-child(1) input:checked) header form:nth-child(1) {
-    display: none;
+    animation: button-disappear 2s forwards;
 }
 
 body:has(header form:nth-child(1) input:checked) header form:nth-child(2) {
@@ -493,7 +495,22 @@ header > section > div:last-child {
 }
 
 @keyframes rainbow { 
-    0%{background-position:0% 82%}
-    50%{background-position:100% 19%}
-    100%{background-position:0% 82%}
+    0% { 
+        background-position: 0% 82%
+    }
+    50% {
+        background-position: 100% 19%
+    }
+    100% {
+        background-position: 0% 82%
+    }
+}
+
+@keyframes button-disappear {
+    0% {
+        transform: translate(-50%, -50%) scale(1.5) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0) rotate(1480deg);
+    }
 }
