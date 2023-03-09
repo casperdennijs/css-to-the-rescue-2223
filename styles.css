@@ -84,6 +84,7 @@ header {
         left: 150px;
     }
 
+    /* header > form:nth-child(1) */
     & form:nth-child(1) {
         z-index: 999;
         position: absolute;
@@ -91,11 +92,13 @@ header {
         left: 50%;
         transform: translate(-50%, -50%);
 
+        /* header > form:nth-child(1) > input */
         & > input {
             position: absolute;
             left: -1000px;
         }
 
+        /* header > form:nth-child(1) > label */
         & > label {
             background: pink;
             padding: 2rem;
@@ -103,12 +106,13 @@ header {
             font-weight: bold;
             text-transform: uppercase;
             transition: .5s;
-            /* */
+            /* Bron: https://codepen.io/nohoid/pen/eYXpNL */
             background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
             background-size: 1800% 1800%;
             animation: rainbow 18s ease infinite;
         }
 
+        /* header > form:nth-child(1) > label:hover */
         & > label:hover {
             cursor: pointer;
             transform: scale(1.05);
@@ -117,7 +121,7 @@ header {
         }
     }
 
-    /* header > form */
+    /* header > form:nth-child(2) */
     & form:nth-child(2) {
         display: none;
         position: absolute;
@@ -127,13 +131,13 @@ header {
         padding: .25em;
         z-index: 998;
 
-        /* header > form > input */
+        /* header > form:nth-child(2) > input */
         & > input {
             position: absolute;
             left: -1000px;
         }
 
-        /* header > form > label */
+        /* header > form:nth-child(2) > label */
         & > label {
             display: flex;
             background: green;
@@ -147,7 +151,7 @@ header {
             opacity: 0.25;
         }
 
-        /* header > form > label:hover */
+        /* header > form:nth-child(2) > label:hover */
         & > label:hover {
             cursor: pointer;
             transform: scale(1.05);
@@ -155,7 +159,7 @@ header {
             opacity: 1;
         }
 
-        /* header > form > label:before */
+        /* header > form:nth-child(2) > label:before */
         & > label:before {
             content: "";
             background-image: url(./svg/play.svg);
@@ -165,7 +169,7 @@ header {
             width: 2em;
         }
 
-        /* header > form > label:after */
+        /* header > form:nth-child(2) > label:after */
         & > label:after {
             content: "Play animation";
             display: block;
