@@ -32,4 +32,9 @@ Verder heb ik nog wat elementen toegevoegd waar de raket langs gaat en heb ik de
 Het eindresultaat kan je zien bij de volgende link: https://casperdennijs.github.io/css-vuurwerkshow/
 
 ## Reflectie
-<invullen>
+- Ik heb veel geleerd over het toepassen van variabelen en de voordelen die daarbij komen kijken
+- Animeren van CSS is erg krachtig en kan je heel veel meedoen
+- Meer gebalanceerd met tijd besteden aan beide vakken, heb meer tijd in WAFS dan in CSSttR
+- Beetje onderschat hoeveel tijd ik aan dit opdracht heb moeten besteden om dit resultaat te krijgen, wou nog veel meer toevoegen
+- Experimenteel native CSS nesting toegepast wat ik heel fijn vind werken
+- :has selector, vond ik een grote ontdekking die ik al eerder had willen weten
