@@ -84,14 +84,48 @@ header {
         left: 150px;
     }
 
+    & form:nth-child(1) {
+        z-index: 999;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        & > input {
+            position: absolute;
+            left: -1000px;
+        }
+
+        & > label {
+            background: pink;
+            padding: 2rem;
+            border-radius: 100px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: .5s;
+            /* */
+            background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+            background-size: 1800% 1800%;
+            animation: rainbow 18s ease infinite;
+        }
+
+        & > label:hover {
+            cursor: pointer;
+            transform: scale(1.05);
+            box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+            opacity: 1;
+        }
+    }
+
     /* header > form */
-    & > form {
+    & form:nth-child(2) {
+        display: none;
         position: absolute;
         top: 0;
         width: 100%;
         color: white;
         padding: .25em;
-        z-index: 999;
+        z-index: 998;
 
         /* header > form > input */
         & > input {
@@ -218,24 +252,36 @@ footer {
     }
 }
 
-body:has(header > form > input:checked) {
+body:has(header form:nth-child(1) input:checked) {
     --animation-state: running;
 }
 
-body:has(header > form > input:checked) header > form > label {
+body:has(header form:nth-child(1) input:checked) header form:nth-child(1) {
+    display: none;
+}
+
+body:has(header form:nth-child(1) input:checked) header form:nth-child(2) {
+    display: block;
+}
+
+body:has(header form:nth-child(2) input:not(:checked)) {
+    --animation-state: paused;
+}
+
+body:has(header form:nth-child(2) input:checked) header form:nth-child(2) label {
     background: red;
     opacity: 0.25;
 }
 
-body:has(header > form > input:checked) header > form > label:hover {
+body:has(header form:nth-child(2) input:checked) header form:nth-child(2) label:hover {
     opacity: 1;
 }
 
-body:has(header > form > input:checked) header > form > label:before {
+body:has(header form:nth-child(2) input:checked) header form:nth-child(2) label:before {
     background-image: url(./svg/pause.svg);
 }
 
-body:has(header > form > input:checked) header > form > label:after {
+body:has(header form:nth-child(2) input:checked) header form:nth-child(2) label:after {
     content: "Pause animation";
 }
 
@@ -440,4 +486,10 @@ header > section > div:last-child {
     100% {
         transform: translateX(var(--cloud-transform));
     }
+}
+
+@keyframes rainbow { 
+    0%{background-position:0% 82%}
+    50%{background-position:100% 19%}
+    100%{background-position:0% 82%}
 }
